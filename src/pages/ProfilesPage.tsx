@@ -11,7 +11,7 @@ export const SelectProfilePage: React.FC = () => {
           {users.map((profile, index) => (
             <div className="flex mx-4 items-center justify-center">
               <NavLink
-                // TODO -> Set this onClick to 
+                // TODO -> Set this onClick to save and change currently logged user in context, to use in navbar top right profile component
                 onClick={() => console.log("Logged in =>", profile)}
                 key={profile}
                 to={`/browse`}
