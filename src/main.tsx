@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   {
-    path: "/profiles",
+    path: "/login",
     element: <SelectProfilePage />,
   },
   {

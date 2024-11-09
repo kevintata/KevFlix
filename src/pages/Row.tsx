@@ -3,6 +3,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import useEmblaCarousel from "embla-carousel-react";
+import { IoChevronForward } from "react-icons/io5";
 
 // TODO -> Create props that change the query key, queryFn, and the title of the row
 
@@ -16,6 +17,7 @@ export const Row: React.FC<RowProps> = ({ title, queryKey, queryFn }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
+    dragFree: true,
   });
 
   const { data, isLoading, isError } = useQuery({
@@ -41,6 +43,7 @@ export const Row: React.FC<RowProps> = ({ title, queryKey, queryFn }) => {
     <>
       <div className="w-full flex flex-col justify-start gap-2">
         <p className="px-4">{title}</p>
+        <IoChevronForward width="5em" height="5em" />
         <div className="overflow-hidden w-full px-4" ref={emblaRef}>
           <div className="flex w-full">
             {data.results.map((movie: any) => (

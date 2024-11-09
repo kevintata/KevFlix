@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, NavLink, Outlet, useSearchParams } from "react-router-dom";
+import { IoSearchSharp } from "react-icons/io5";
 
 export const Navbar: React.FC = () => {
   // TODO -> Create sidebar black fade in
@@ -23,7 +24,13 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <div className="w-full bg-black flex flex-row justify-between items-center p-5">
+      <div
+        className="w-full flex flex-row justify-between items-center p-5"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(4, 4, 4, 1) 0%, rgba(20, 20, 20, 1) 8.5%, rgba(20, 20, 20, 1) 100%)",
+        }}
+      >
         <div className="flex flex-row gap-5">
           <NavLink to="/" className="text-white">
             Logo Here
@@ -53,39 +60,17 @@ export const Navbar: React.FC = () => {
         <div className="flex flex-row gap-5">
           <div>
             {!isSearchOpen && (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
+              <IoSearchSharp
                 className="w-6 h-6 cursor-pointer"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
+              />
             )}
             {isSearchOpen && (
               <div className="flex flex-row">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
+                <IoSearchSharp
                   className="w-6 h-6 cursor-pointer"
                   onClick={() => setIsSearchOpen(!isSearchOpen)}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                />
                 <input
                   type="text"
                   id="searchQuery"
